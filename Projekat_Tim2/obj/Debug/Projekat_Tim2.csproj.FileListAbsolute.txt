@@ -5,3 +5,10 @@ C:\Users\021ma\OneDrive\Desktop\Folderi\FTN\Predmeti\5. Semestar\Elementi razvoj
 C:\Users\021ma\OneDrive\Desktop\Folderi\FTN\Predmeti\5. Semestar\Elementi razvoja softvera\Projekat\Projekat_Tim2\obj\Debug\Projekat_Tim2.csproj.CoreCompileInputs.cache
 C:\Users\021ma\OneDrive\Desktop\Folderi\FTN\Predmeti\5. Semestar\Elementi razvoja softvera\Projekat\Projekat_Tim2\obj\Debug\Projekat_Tim2.exe
 C:\Users\021ma\OneDrive\Desktop\Folderi\FTN\Predmeti\5. Semestar\Elementi razvoja softvera\Projekat\Projekat_Tim2\obj\Debug\Projekat_Tim2.pdb
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\bin\Debug\Projekat_Tim2.exe.config
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\bin\Debug\Projekat_Tim2.exe
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\bin\Debug\Projekat_Tim2.pdb
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\obj\Debug\Projekat_Tim2.csproj.AssemblyReference.cache
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\obj\Debug\Projekat_Tim2.csproj.CoreCompileInputs.cache
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\obj\Debug\Projekat_Tim2.exe
+D:\_faks\5. semestar\elementi\ERS_Projekat_Tim2\Projekat_Tim2\obj\Debug\Projekat_Tim2.pdb
