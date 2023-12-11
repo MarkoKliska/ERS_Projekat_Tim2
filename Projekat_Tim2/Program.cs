@@ -11,7 +11,7 @@ namespace Projekat_Tim2
         static void Main(string[] args)
         {
             Console.WriteLine("Cao jelkice!");
-            
+            Console.ReadLine();
         }
     }
 }
