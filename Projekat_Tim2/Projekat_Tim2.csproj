@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Klase\InformacijeOU.cs" />
     <Compile Include="Klase\UvozOP.cs" />
     <Compile Include="Klase\UvozPP.cs" />
     <Compile Include="Program.cs" />
@@ -50,6 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Skladista\skladisteOP.xml" />
+    <Content Include="Skladista\skladistePP.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfejsi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
