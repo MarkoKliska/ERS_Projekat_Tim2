@@ -20,6 +20,7 @@ namespace Projekat_Tim2.Klase
         {
             Console.WriteLine("Unesite putanju do ulaznog fajla: \n");
             putanjaDoUlaznogFajla = Console.ReadLine();
+            putanjaDoUlaznogFajla = putanjaDoUlaznogFajla.Trim('\"');
             putanjaUPP = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, putanjaDoUlaznogFajla);
 
             string dir = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
