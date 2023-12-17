@@ -19,29 +19,30 @@ namespace Projekat_Tim2
 
         private static void Pocetak()
         {
-            Console.WriteLine("Odaberite operaciju: ");
-            Console.WriteLine(" 1. Uvoz podataka \n 2. Ispis podataka \n 3. Evidentiranje geografskih podrucja \n 4. Kraj\n");
+            Console.WriteLine("~~~~~~~~~~~~~~ Odaberite operaciju: ~~~~~~~~~~~~~~");
+            Console.WriteLine("  1. Uvoz podataka \n  2. Ispis podataka \n  3. Evidentiranje geografskih podrucja \n  4. Kraj");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
             string odabranaOpcija;
-                
+
             odabranaOpcija = Console.ReadLine();
-            //Console.WriteLine(odabranaOpcija);
+
             try
             {
                 int proveriOpciju = int.Parse(odabranaOpcija);
             }
-            catch(FormatException ex)
+            catch (FormatException ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
             int selekcija = int.Parse(odabranaOpcija);
 
-            if(selekcija < 1 || selekcija > 4)
+            if (selekcija < 1 || selekcija > 4)
             {
                 Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
             }
-                
+
             switch (selekcija)
             {
                 case 1:
@@ -60,17 +61,19 @@ namespace Projekat_Tim2
                     Kraj();
                     break;
 
-                //default nam ne treba jer smo proverili da li selekcija moze da bude nesto sto nije ponudjeno
+                    //default nam ne treba jer smo proverili da li selekcija moze da bude nesto sto nije ponudjeno
             }
         }
 
         private static void UvozPodataka()
         {
-            Console.WriteLine("Odaberite jednu od opcija: \n 1. Prognozirana potrosnja \n 2. Ostvarena potrosnja \n ");
+            Console.WriteLine("~~~~~~~~~~~ Odaberite jednu od opcija: ~~~~~~~~~~~");
+            Console.WriteLine("  1. Prognozirana potrosnja\n  2. Ostvarena potrosnja");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             string selekcijaUP;
 
             selekcijaUP = Console.ReadLine();
-            
+
             try
             {
                 int proveriOpcijuUP = int.Parse(selekcijaUP);
