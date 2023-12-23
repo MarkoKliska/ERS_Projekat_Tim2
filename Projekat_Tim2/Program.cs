@@ -105,7 +105,41 @@ namespace Projekat_Tim2
 
         private static void IspisPodataka()
         {
+            Console.WriteLine("~~~~~~~~~~~ Odaberite jednu od opcija: ~~~~~~~~~~~");
+            Console.WriteLine("  1. Ispis podataka\n  2. Izvoz tabele sa relativnim odstupanjima");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            string selekcijaISP;
 
+            selekcijaISP = Console.ReadLine();
+
+            try
+            {
+                int proveriOpcijuISP = int.Parse(selekcijaISP);
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            int selekcija_ISP = int.Parse(selekcijaISP);
+
+            if (selekcija_ISP < 1 || selekcija_ISP > 2)
+            {
+                Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
+                UvozPodataka();
+            }
+
+            switch (selekcija_ISP)
+            {
+                case 1:
+                    Ispis ispis = new Ispis();
+                    ispis.IspisLogika();
+                    break;
+                    
+                case 2:
+                    
+                    break;
+            }
         }
 
         private static void EvidentiranjePodataka()
