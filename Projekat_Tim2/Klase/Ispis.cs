@@ -11,10 +11,10 @@ namespace Projekat_Tim2.Klase
 {
     internal class Ispis
     {
-        private List<int> sat = new List<int>();
-        private List<int> prog_potr = new List<int>();
-        private List<int> ostv_potr = new List<int>();
-        private List<double> rel_odst = new List<double>();
+        protected List<int> sat = new List<int>();
+        protected List<int> prog_potr = new List<int>();
+        protected List<int> ostv_potr = new List<int>();
+        protected List<double> rel_odst = new List<double>();
         
 
         public Ispis() 
@@ -25,19 +25,15 @@ namespace Projekat_Tim2.Klase
         public void IspisLogika()
         {
             UnosZaIspis instance = new UnosZaIspis().UnesiInformacije();
-            
             PutanjeDoSkladista putanjaSkl = new PutanjeDoSkladista();
-
             string putanjaXMLPP = putanjaSkl.GetSkladistePP();
-
             string putanjaXMLOP = putanjaSkl.GetSkladisteOP();
+
 
             XmlDocument skladistePP = new XmlDocument();
             skladistePP.Load(putanjaXMLPP);
-
-            XmlNodeList stavke1 = skladistePP.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
-
-            foreach (XmlNode stavka in stavke1)
+            XmlNodeList stavkePP = skladistePP.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
+            foreach (XmlNode stavka in stavkePP)
             {
                 string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
                 string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
@@ -54,10 +50,10 @@ namespace Projekat_Tim2.Klase
                 }
             }
 
+
             XmlDocument skladisteOP = new XmlDocument();
             skladisteOP.Load(putanjaXMLOP);
-
-            XmlNodeList stavke2 = skladisteOP.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
+            XmlNodeList stavkeOP = skladisteOP.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
 
             int i = 0;
             int prom_ost;
@@ -65,7 +61,7 @@ namespace Projekat_Tim2.Klase
 
             Console.WriteLine("SAT     PROGNOZIRANA_PORTOSNJA     OSTVARENA_PORTOSNJA     RELATIVNO_PROCENTUALNO_ODSTUPANJE");
 
-            foreach (XmlNode stavka in stavke2)
+            foreach (XmlNode stavka in stavkeOP)
             {
                 string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
                 string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
@@ -86,5 +82,7 @@ namespace Projekat_Tim2.Klase
                 }
             }
         }
+
+        
     }
 }

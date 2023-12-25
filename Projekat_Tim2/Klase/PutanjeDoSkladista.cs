@@ -24,5 +24,12 @@ namespace Projekat_Tim2.Klase
             string putanjaXMLOP = Path.Combine(dirOP, putanjaDoSkladista2);
             return Path.GetFullPath(putanjaXMLOP);
         }
+        public string GetTabelaRO()
+        {
+            string dirTRO = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoTabeleRO = @"Skladista\TabelaRO.csv";
+            string putanjaCSVTRO = Path.Combine(dirTRO, putanjaDoTabeleRO);
+            return Path.GetFullPath(putanjaCSVTRO);
+        }
     }
 }

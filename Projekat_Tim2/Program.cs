@@ -137,7 +137,9 @@ namespace Projekat_Tim2
                     break;
                     
                 case 2:
-                    
+
+                    TabelaRO izvoz = new TabelaRO();
+                    izvoz.IzveziUCsv();
                     break;
             }
         }
