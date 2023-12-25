@@ -43,21 +43,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Klase\AuditTabela.cs" />
     <Compile Include="Klase\InformacijeOU.cs" />
+    <Compile Include="Klase\Ispis.cs" />
+    <Compile Include="Klase\ProveraFormataFajla.cs" />
+    <Compile Include="Klase\ProveraValidnostiFajla.cs" />
+    <Compile Include="Klase\PutanjeDoSkladista.cs" />
+    <Compile Include="Klase\UnosZaIspis.cs" />
     <Compile Include="Klase\UvozOP.cs" />
     <Compile Include="Klase\UvozPP.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".vs\Projekat_Tim2\FileContentIndex\53516cb3-8dc3-4a5c-947f-750232aa28be.vsidx" />
+    <None Include=".vs\Projekat_Tim2\FileContentIndex\87514dca-4df2-4a2c-9215-da43d80ca4e0.vsidx" />
+    <None Include=".vs\Projekat_Tim2\FileContentIndex\8e1c9964-62ed-4258-8f4c-3b5be31c6a93.vsidx" />
+    <None Include=".vs\Projekat_Tim2\FileContentIndex\d45991bb-042a-4d44-a6ee-2d1f4dfa64bd.vsidx" />
+    <None Include=".vs\Projekat_Tim2\FileContentIndex\da13efd9-969f-41ce-b620-d1df0ccccd13.vsidx" />
+    <None Include=".vs\Projekat_Tim2\v16\.suo" />
+    <None Include=".vs\Projekat_Tim2\v17\.suo" />
     <None Include="App.config" />
+    <None Include="bin\Debug\Projekat_Tim2.exe.config" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Projekat_Tim2.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\Projekat_Tim2.csproj.CoreCompileInputs.cache" />
+    <None Include="Skladista\AuditTabela.csv" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Projekat_Tim2.exe" />
+    <Content Include="bin\Debug\Projekat_Tim2.pdb" />
+    <Content Include="obj\Debug\Projekat_Tim2.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Projekat_Tim2.exe" />
+    <Content Include="obj\Debug\Projekat_Tim2.pdb" />
     <Content Include="Skladista\skladisteOP.xml" />
     <Content Include="Skladista\skladistePP.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Interfejsi\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

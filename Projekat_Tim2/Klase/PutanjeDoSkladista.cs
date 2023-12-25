@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Projekat_Tim2.Klase
+{
+    internal class PutanjeDoSkladista
+    {
+        public string GetSkladistePP()
+        {
+            string dirPP = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoSkladista1 = @"Skladista\skladistePP.xml";
+            string putanjaXMLPP = Path.Combine(dirPP, putanjaDoSkladista1);
+            return Path.GetFullPath(putanjaXMLPP);
+        }
+
+        public string GetSkladisteOP()
+        {
+            string dirOP = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoSkladista2 = @"Skladista\skladisteOP.xml";
+            string putanjaXMLOP = Path.Combine(dirOP, putanjaDoSkladista2);
+            return Path.GetFullPath(putanjaXMLOP);
+        }
+        public string GetTabelaRO()
+        {
+            string dirTRO = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoTabeleRO = @"Skladista\TabelaRO.csv";
+            string putanjaCSVTRO = Path.Combine(dirTRO, putanjaDoTabeleRO);
+            return Path.GetFullPath(putanjaCSVTRO);
+        }
+    }
+}

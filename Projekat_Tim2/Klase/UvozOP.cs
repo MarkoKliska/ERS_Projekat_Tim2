@@ -29,6 +29,7 @@ namespace Projekat_Tim2.Klase
             ProveraFormataUlaznogFajla pfup = new ProveraFormataUlaznogFajla();
             ProveraValidnostiFajla pvf = new ProveraValidnostiFajla();
             AuditTabela audTb = new AuditTabela();
+            PutanjeDoSkladista putanjaDoSkl = new PutanjeDoSkladista();
 
             try
             {
@@ -49,10 +50,7 @@ namespace Projekat_Tim2.Klase
 
             if (dozvolaZaUvoz)
             {
-                string dir = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-                putanjaDoSkladista = @"Skladista\skladisteOP.xml";
-                putanjaXML = Path.Combine(dir, putanjaDoSkladista);
-                Path.GetFullPath(putanjaXML);
+                putanjaXML = putanjaDoSkl.GetSkladisteOP();
 
                 XmlDocument izvor = new XmlDocument();
                 izvor.Load(putanjaUOP);
