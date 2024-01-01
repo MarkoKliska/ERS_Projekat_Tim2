@@ -31,5 +31,13 @@ namespace Projekat_Tim2.Klase
             string putanjaCSVTRO = Path.Combine(dirTRO, putanjaDoTabeleRO);
             return Path.GetFullPath(putanjaCSVTRO);
         }
+
+        public string GetSkladisteEv()
+        {
+            string dirEV = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoSkladistaEv = @"Skladista\evidencijaGP.xml";
+            string putanjaXMLEV = Path.Combine(dirEV, putanjaDoSkladistaEv);
+            return putanjaXMLEV;
+        }
     }
 }

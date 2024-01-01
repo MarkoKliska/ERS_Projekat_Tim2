@@ -44,11 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Klase\AuditTabela.cs" />
+    <Compile Include="Klase\EvidencijaGP.cs" />
     <Compile Include="Klase\InformacijeOU.cs" />
     <Compile Include="Klase\Ispis.cs" />
     <Compile Include="Klase\ProveraFormataFajla.cs" />
     <Compile Include="Klase\ProveraValidnostiFajla.cs" />
     <Compile Include="Klase\PutanjeDoSkladista.cs" />
+    <Compile Include="Klase\TabelaRO.cs" />
     <Compile Include="Klase\UnosZaIspis.cs" />
     <Compile Include="Klase\UvozOP.cs" />
     <Compile Include="Klase\UvozPP.cs" />
@@ -78,6 +80,7 @@
     <Content Include="obj\Debug\Projekat_Tim2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Projekat_Tim2.exe" />
     <Content Include="obj\Debug\Projekat_Tim2.pdb" />
+    <Content Include="Skladista\evidencijaGP.xml" />
     <Content Include="Skladista\skladisteOP.xml" />
     <Content Include="Skladista\skladistePP.xml" />
   </ItemGroup>

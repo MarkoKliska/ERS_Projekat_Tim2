@@ -21,6 +21,11 @@ namespace Projekat_Tim2.Klase
 
         public UvozOP()
         {
+            
+        }
+
+        public void UveziOP()
+        {
             Console.WriteLine("~~~~~~~~ Unesite putanju do ulaznog fajla: ~~~~~~~\n");
             putanjaDoUlaznogFajla = Console.ReadLine();
             putanjaDoUlaznogFajla = putanjaDoUlaznogFajla.Trim('\"');
@@ -116,6 +121,9 @@ namespace Projekat_Tim2.Klase
             {
                 Console.WriteLine("Uvoz podataka neuspesan, pokusajte ponovo.\n");
             }
+
+            EvidencijaGP evidencija = new EvidencijaGP(putanjaUOP);
+            evidencija.Evidentiraj();
         }
     }
 }

@@ -68,7 +68,7 @@ namespace Projekat_Tim2
         private static void UvozPodataka()
         {
             Console.WriteLine("~~~~~~~~~~~ Odaberite jednu od opcija: ~~~~~~~~~~~");
-            Console.WriteLine("  1. Prognozirana potrosnja\n  2. Ostvarena potrosnja");
+            Console.WriteLine("  1. Prognozirana potrosnja\n  2. Ostvarena potrosnja\n  3. <-");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             string selekcijaUP;
 
@@ -85,7 +85,7 @@ namespace Projekat_Tim2
 
             int selekcija_UP = int.Parse(selekcijaUP);
 
-            if (selekcija_UP < 1 || selekcija_UP > 2)
+            if (selekcija_UP < 1 || selekcija_UP > 3)
             {
                 Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
                 UvozPodataka();
@@ -95,10 +95,17 @@ namespace Projekat_Tim2
             {
                 case 1:
                     UvozPP uvozpp1 = new UvozPP();
+                    uvozpp1.UveziPP();
                     break;
 
                 case 2:
                     UvozOP uvozop1 = new UvozOP();
+                    uvozop1.UveziOP();
+                    break;
+
+                case 3:
+                    break;
+                default:
                     break;
             }
         }
@@ -106,7 +113,7 @@ namespace Projekat_Tim2
         private static void IspisPodataka()
         {
             Console.WriteLine("~~~~~~~~~~~ Odaberite jednu od opcija: ~~~~~~~~~~~");
-            Console.WriteLine("  1. Ispis podataka\n  2. Izvoz tabele sa relativnim odstupanjima");
+            Console.WriteLine("  1. Ispis podataka\n  2. Izvoz tabele sa relativnim odstupanjima\n  3. <-");
             Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
             string selekcijaISP;
 
@@ -123,7 +130,7 @@ namespace Projekat_Tim2
 
             int selekcija_ISP = int.Parse(selekcijaISP);
 
-            if (selekcija_ISP < 1 || selekcija_ISP > 2)
+            if (selekcija_ISP < 1 || selekcija_ISP > 3)
             {
                 Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
                 UvozPodataka();
@@ -141,12 +148,37 @@ namespace Projekat_Tim2
                     TabelaRO izvoz = new TabelaRO();
                     izvoz.IzveziUCsv();
                     break;
+                case 3:
+                    break;
+                default:
+                    break;
             }
         }
 
         private static void EvidentiranjePodataka()
         {
+            Console.WriteLine("~~~~~~~~~~~ Odaberite jednu od opcija: ~~~~~~~~~~~");
+            Console.WriteLine("  1. Prikaz imena oblasti\n  2. Izmena imena oblasti\n  3. <-");
+            Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 
+            string opcijas = Console.ReadLine();
+            int opcijai = Convert.ToInt32(opcijas);
+            switch (opcijai)
+            {
+                case 1:
+                    EvidencijaGP evidencija1 = new EvidencijaGP();
+                    evidencija1.EvidentirajIspis();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                default:
+                    Console.WriteLine("Neispravan unos");
+                    break;
+            }
+
+            
         }
 
         private static void Kraj()
