@@ -23,7 +23,7 @@ namespace Projekat_Tim2.Klase
         }
         public void Evidentiraj()
         {
-            sifre = this.GetSSS();
+            sifre = this.GetSS();
             PutanjeDoSkladista putanja = new PutanjeDoSkladista();
             putanjaDoEv = putanja.GetSkladisteEv();
 
@@ -46,7 +46,7 @@ namespace Projekat_Tim2.Klase
 
         public void EvidentirajIspis()
         {
-            sifre = this.GetSSS();
+            sifre = this.GetSS();
             Console.Write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             Console.WriteLine("Ispis oblasti: ");
             foreach (string s in sifre)
@@ -82,42 +82,6 @@ namespace Projekat_Tim2.Klase
         }
 
         public List<string> GetSS()
-        {
-            PutanjeDoSkladista putanja = new PutanjeDoSkladista();
-            string putanjaOPS = putanja.GetSkladisteOP();
-            string putanjaPPS = putanja.GetSkladistePP();
-            string tempObl;
-
-            List<string> ret = new List<string>();
-
-            XmlDocument skladistePP = new XmlDocument();
-            skladistePP.Load(putanjaPPS);
-            XmlNodeList stavkePP = skladistePP.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
-            foreach (XmlNode stavka in stavkePP)
-            {
-                tempObl = stavka.SelectSingleNode("OBLAST").InnerText;
-                if (!(ret.Contains(tempObl)))
-                {
-                    ret.Add(tempObl);
-                }
-            }
-
-            XmlDocument skladisteOP = new XmlDocument();
-            skladisteOP.Load(putanjaOPS);
-            XmlNodeList stavkeOP = skladisteOP.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
-            foreach (XmlNode stavka in stavkeOP)
-            {
-                tempObl = stavka.SelectSingleNode("OBLAST").InnerText;
-                if (!(ret.Contains(tempObl)))
-                {
-                    ret.Add(tempObl);
-                }
-            }
-
-            return ret;
-        }
-
-        public List<string> GetSSS()
         {
             PutanjeDoSkladista putanja = new PutanjeDoSkladista();
             string putanjaEV = putanja.GetSkladisteEv();
