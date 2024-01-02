@@ -170,6 +170,9 @@ namespace Projekat_Tim2
                     evidencija1.EvidentirajIspis();
                     break;
                 case 2:
+                    
+                    EvidencijaGP evidencija2 = new EvidencijaGP();
+                    evidencija2.IzmeniImeOblasti();
                     break;
                 case 3:
                     break;

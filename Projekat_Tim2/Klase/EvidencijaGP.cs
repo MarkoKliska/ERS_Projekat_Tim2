@@ -12,14 +12,14 @@ namespace Projekat_Tim2.Klase
     internal class EvidencijaGP
     {
         private string putanjaDoUlaza;
-        private List<string>sifre = new List<string>();
+        private List<string> sifre = new List<string>();
         private string putanjaDoEv;
         private List<string> procitaneOblasti = new List<string>();
 
-        public EvidencijaGP(string p = null) 
+        public EvidencijaGP(string p = null)
         {
             putanjaDoUlaza = p;
-            
+
         }
         public void Evidentiraj()
         {
@@ -31,7 +31,7 @@ namespace Projekat_Tim2.Klase
 
             XDocument doc = XDocument.Load(putanjaDoEv);
 
-            foreach(string s in procitaneOblasti)
+            foreach (string s in procitaneOblasti)
             {
                 if (!sifre.Contains(s))
                 {
@@ -48,17 +48,57 @@ namespace Projekat_Tim2.Klase
         {
             sifre = this.GetSS();
             Console.Write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            Console.WriteLine("Ispis oblasti: ");
+            Console.WriteLine("Postojece oblasti: ");
             foreach (string s in sifre)
             {
                 Console.WriteLine(s);
             }
         }
 
+
+
         public void IzmeniImeOblasti()
         {
 
+            PutanjeDoSkladista putanja = new PutanjeDoSkladista();
+            putanjaDoUlaza = putanja.GetSkladisteEv();
+            sifre = this.GetSS();
+
+            Console.WriteLine("Unesite naziv oblasti zelite da izmenite: ");
+            string stariNaziv = Console.ReadLine();
+            stariNaziv = stariNaziv.ToUpper();
+
+            if (sifre.Contains(stariNaziv))
+            {
+                Console.WriteLine("Unesite novi naziv za datu oblast");
+                string noviNaziv = Console.ReadLine();
+                noviNaziv = noviNaziv.ToUpper();
+
+                if (sifre.Contains(noviNaziv))
+                {
+                    Console.WriteLine("Dati naziv oblasti vec postoji u bazi podataka");
+                }
+                else
+                {
+                    XmlDocument xmlDoc = new XmlDocument();
+                    xmlDoc.Load(putanjaDoUlaza);
+
+                    XmlNodeList nodes = xmlDoc.SelectNodes($"//IME_OBLASTI[text()='{stariNaziv}']");
+                    foreach (XmlNode node in nodes)
+                    {
+                        node.InnerText = noviNaziv;
+                    }
+
+                    xmlDoc.Save(putanjaDoUlaza);
+                    Console.WriteLine($"Naziv oblasti '{stariNaziv}' uspesno promenjen u '{noviNaziv}'");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Dati naziv oblasti ne postoji u bazi podataka");
+            }
         }
+       
 
         public List<string> GetProcitaneOblasti()
         {
@@ -69,7 +109,7 @@ namespace Projekat_Tim2.Klase
             XmlDocument ulaz = new XmlDocument();
             ulaz.Load(putanjaDoUlaza);
             XmlNodeList stavke = ulaz.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
-            foreach(XmlNode stavka in stavke)
+            foreach (XmlNode stavka in stavke)
             {
                 tempObl = stavka.SelectSingleNode("OBLAST").InnerText;
                 if (!po.Contains(tempObl))
@@ -105,6 +145,4 @@ namespace Projekat_Tim2.Klase
             return ret;
         }
     }
-
-    
 }
