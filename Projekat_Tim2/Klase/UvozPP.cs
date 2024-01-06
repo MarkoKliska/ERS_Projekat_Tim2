@@ -14,7 +14,7 @@ namespace Projekat_Tim2.Klase
         private string putanjaXML;
 
         private string putanjaDoUlaznogFajla;
-        private string putanjaDoSkladista;
+        //private string putanjaDoSkladista;
 
         private bool dozvolaZaUvoz;
         private bool validnostFajla;
@@ -22,6 +22,11 @@ namespace Projekat_Tim2.Klase
         public UvozPP()
         {
             
+        }
+
+        public bool DozvolaZaUvoz()
+        {
+            return dozvolaZaUvoz;
         }
 
         public void UveziPP()
