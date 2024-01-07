@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Xml;
+using Projekat_Tim2.Interfejsi;
 
 namespace Projekat_Tim2.Klase
 {
-    class TabelaRO : Ispis
+    class TabelaRO : Ispis, IIzvozRO
     {
         public void IzveziUCsv()
         {

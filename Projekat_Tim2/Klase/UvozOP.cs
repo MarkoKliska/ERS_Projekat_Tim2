@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projekat_Tim2.Interfejsi;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Xml;
 
 namespace Projekat_Tim2.Klase
 {
-    public class UvozOP
+    public class UvozOP : IUvozOP
     {
         private string putanjaUOP;
         private string putanjaXML;
@@ -28,7 +29,7 @@ namespace Projekat_Tim2.Klase
         {
             return dozvolaZaUvoz;
         }
-        public void UveziOP()
+        public void UveziXML_OP()
         {
             Console.WriteLine("~~~~~~~~ Unesite putanju do ulaznog fajla: ~~~~~~~\n");
             putanjaDoUlaznogFajla = Console.ReadLine();

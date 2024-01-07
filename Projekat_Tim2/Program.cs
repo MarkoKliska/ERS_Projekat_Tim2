@@ -95,12 +95,12 @@ namespace Projekat_Tim2
             {
                 case 1:
                     UvozPP uvozpp1 = new UvozPP();
-                    uvozpp1.UveziPP();
+                    uvozpp1.UveziXML_PP();
                     break;
 
                 case 2:
                     UvozOP uvozop1 = new UvozOP();
-                    uvozop1.UveziOP();
+                    uvozop1.UveziXML_OP();
                     break;
 
                 case 3:

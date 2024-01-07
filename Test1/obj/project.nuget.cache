@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Joz7d/aMdYStP059qY+yz1TJjUquVajJGj0Dp6tJFvsq4f5tq85J/jHkAW0HC8Ry+Sm7A+BHk8FAA7ZAhSWlVw==",
+  "dgSpecHash": "CmILbZfrlWo4cFNqEp+SPc9dJythqS+j9tV34Rl3xx/+bC+FZbsYcSPLERpiHj9cJM2U2+6ei9KJ+RqAxv23Wg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\021ma\\OneDrive\\Desktop\\Folderi\\Test\\ERS_Projekat_Tim2\\Test1\\TestiranjeUnosa.csproj",
+  "projectFilePath": "C:\\Users\\021ma\\OneDrive\\Desktop\\Folderi\\FTN\\Predmeti\\5.Semestar\\Elementi_razvoja_softvera\\Projekat\\ERS_Projekat_Tim2\\ERS_Projekat_Tim2\\Test1\\TestiranjeUnosa.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\021ma\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
     "C:\\Users\\021ma\\.nuget\\packages\\microsoft.codecoverage\\17.5.0\\microsoft.codecoverage.17.5.0.nupkg.sha512",

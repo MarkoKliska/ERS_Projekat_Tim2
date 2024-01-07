@@ -23,7 +23,7 @@ namespace TestiranjeUnosa
             using (StringReader sr = new StringReader(relativnaPutanja))
             {
                 Console.SetIn(sr);
-                uvozpp1.UveziPP();
+                uvozpp1.UveziXML_PP();
             }
             //ASSERT
             Assert.IsTrue(uvozpp1.DozvolaZaUvoz(), "Ocekujemo dozvoljen ulaz");
@@ -41,7 +41,7 @@ namespace TestiranjeUnosa
             using (StringReader sr = new StringReader(@"dsss43434"))
             {
                 Console.SetIn(sr);
-                var ex = Assert.Catch(() => uvozpp1.UveziPP());     //HVATA EXCEPTION
+                var ex = Assert.Catch(() => uvozpp1.UveziXML_PP());     //HVATA EXCEPTION
 
                 //ASSERT
                 Assert.IsInstanceOf<Exception>(ex);
