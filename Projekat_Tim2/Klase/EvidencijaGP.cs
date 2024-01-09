@@ -107,7 +107,16 @@ namespace Projekat_Tim2.Klase
             string tempObl;
 
             XmlDocument ulaz = new XmlDocument();
-            ulaz.Load(putanjaDoUlaza);
+            
+            try
+            {
+                ulaz.Load(putanjaDoUlaza);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Doslo je do greske: {ex.Message}");
+            }
+
             XmlNodeList stavke = ulaz.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
             foreach (XmlNode stavka in stavke)
             {

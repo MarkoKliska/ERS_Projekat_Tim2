@@ -53,9 +53,9 @@ namespace Projekat_Tim2.Klase
                     dozvolaZaUvoz = false;
                 }
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
-                Console.WriteLine("  Doslo je do greske: \n", ex.Message);
+                Console.WriteLine("Doslo je do greske: \n", ex.ToString());
             }
 
             if (dozvolaZaUvoz)

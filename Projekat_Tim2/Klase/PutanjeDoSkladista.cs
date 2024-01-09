@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Projekat_Tim2.Klase
 {
-    internal class PutanjeDoSkladista
+    public class PutanjeDoSkladista
     {
+        public PutanjeDoSkladista() { }
         public string GetSkladistePP()
         {
             string dirPP = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;

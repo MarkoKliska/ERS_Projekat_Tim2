@@ -14,6 +14,20 @@ namespace Projekat_Tim2.Klase
 
         public string UnetaOblast { get; set; }
 
+        private string dateString;
+
+        private int godinaInt;
+        private int mesecInt;
+        private int danInt;
+
+        private string godinaStr;
+        private string mesecStr;
+        private string danStr;
+
+        private string unetaOblast;
+
+        private int g, m, d;
+
         public UnosZaIspis()
         {
             
@@ -21,32 +35,49 @@ namespace Projekat_Tim2.Klase
 
         public UnosZaIspis UnesiInformacije()
         {
+            string[] deloviDatuma = null;
             UnosZaIspis instance = new UnosZaIspis();
+            ProveraFormataUlaznogFajla provera = new ProveraFormataUlaznogFajla();
+            Ispis ispis = new Ispis();
 
             Console.WriteLine("Unesite datum: ");
-            string dateString = Console.ReadLine();
-
-            string[] deloviDatuma = null;
-
+            dateString = Console.ReadLine();
             deloviDatuma = dateString.Split('.');
 
-            int godina = Convert.ToInt32(deloviDatuma[2]);
-            int mesec = Convert.ToInt32(deloviDatuma[1]);
-            int dan = Convert.ToInt32(deloviDatuma[0]);
+            godinaStr = deloviDatuma[2];
+            mesecStr = deloviDatuma[1];
+            danStr = deloviDatuma[0];
+
+            godinaInt = Convert.ToInt32(godinaStr);
+            mesecInt = Convert.ToInt32(mesecStr);
+            danInt = Convert.ToInt32(danStr);
+            
+            while (provera.ProveraFormataDatuma(godinaStr, mesecStr, danStr) != true)
+            {
+                Console.WriteLine("Neispravan format datuma, unesite novi datum:");
+                dateString = Console.ReadLine();
+                deloviDatuma = dateString.Split('.');
+                godinaStr = deloviDatuma[2];
+                mesecStr = deloviDatuma[1];
+                danStr = deloviDatuma[0];
+            }    
+
+            godinaInt = Convert.ToInt32(deloviDatuma[2]);
+            mesecInt = Convert.ToInt32(deloviDatuma[1]);
+            danInt = Convert.ToInt32(deloviDatuma[0]);
+
 
             Console.WriteLine("Unesite geografsku oblast: ");
-            string unetaOblast = Console.ReadLine();
+            unetaOblast = Console.ReadLine();
             unetaOblast = unetaOblast.ToUpper();
 
-            instance.Dan = dan;
-            instance.Mesec = mesec;
-            instance.Godina = godina;
+            instance.Dan = danInt;
+            instance.Mesec = mesecInt;
+            instance.Godina = godinaInt;
             instance.UnetaOblast = unetaOblast;
-
-            return instance;
+            
+            
+            return instance; 
         }
-
-        
-
     }
 }

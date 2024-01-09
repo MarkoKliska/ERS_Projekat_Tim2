@@ -53,7 +53,7 @@ namespace Projekat_Tim2.Klase
             return false;
         }
 
-        private bool ProveraFormataDatuma(string godina, string mesec, string dan)
+        public bool ProveraFormataDatuma(string godina, string mesec, string dan)
         {
             int y, m, d;
 

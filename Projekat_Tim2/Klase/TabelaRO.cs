@@ -33,11 +33,14 @@ namespace Projekat_Tim2.Klase
                     datum = imeFajla.Split('_');
                     string[] dn = datum[3].Split('.');
 
-                    if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                    if (instance != null)
                     {
-                        sat.Add(Convert.ToInt32(stavka.SelectSingleNode("SAT").InnerText));
-                        prog_potr.Add(Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText));
+                        if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                        {
+                            sat.Add(Convert.ToInt32(stavka.SelectSingleNode("SAT").InnerText));
+                            prog_potr.Add(Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText));
 
+                        }
                     }
                 }
 
@@ -65,19 +68,23 @@ namespace Projekat_Tim2.Klase
                         string[] datum;
                         datum = imeFajla.Split('_');
                         string[] dn = datum[3].Split('.');
-                        if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                        
+                        if (instance != null)
                         {
-                            prom_ost = Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText);
-                            ostv_potr.Add(prom_ost);
-                            vr = Convert.ToDouble(Convert.ToDouble(Math.Abs(prom_ost - prog_potr[i])) / prom_ost * 100);
-                            vr = Math.Round(vr, 3);
-                            rel_odst.Add(vr);
-                            writer.WriteLine($"{sat[i]},{prog_potr[i]},{ostv_potr[i]},{rel_odst[i]}");
-                            i++;
+                            if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                            {
+                                prom_ost = Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText);
+                                ostv_potr.Add(prom_ost);
+                                vr = Convert.ToDouble(Convert.ToDouble(Math.Abs(prom_ost - prog_potr[i])) / prom_ost * 100);
+                                vr = Math.Round(vr, 3);
+                                rel_odst.Add(vr);
+                                writer.WriteLine($"{sat[i]},{prog_potr[i]},{ostv_potr[i]},{rel_odst[i]}");
+                                i++;
+                            }
+                            Console.WriteLine("Podaci su uspešno izvezeni u tabelu sa relativnim odstupanjima.");
                         }
                     }
                 }
-                Console.WriteLine("Podaci su uspešno izvezeni u tabelu sa relativnim odstupanjima.");
             }
             catch (Exception e)
             {
