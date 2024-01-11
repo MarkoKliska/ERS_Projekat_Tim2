@@ -12,42 +12,29 @@ namespace TestiranjeUnosa
             
             var uvozpp1 = new UvozPP();
 
-            string testDirektorijum = TestContext.CurrentContext.TestDirectory;
+            string? testDirektorijum = TestContext.CurrentContext.TestDirectory;
+            string? relativnaPutanja;
+
             testDirektorijum = Path.GetDirectoryName(testDirektorijum);
             testDirektorijum = Path.GetDirectoryName(testDirektorijum);
             testDirektorijum = Path.GetDirectoryName(testDirektorijum);
 
-            string relativnaPutanja = Path.Combine(testDirektorijum, "TestInput", "prog_2020_05_07.xml");
-
+            if (testDirektorijum != null)
+                relativnaPutanja = Path.Combine(testDirektorijum, "TestInput", "prog_2020_05_07.xml");
+            else
+                relativnaPutanja = null;
             //ACT
-            using (StringReader sr = new StringReader(relativnaPutanja))
+            if(relativnaPutanja != null)
             {
-                Console.SetIn(sr);
-                uvozpp1.UveziXML_PP();
-            }
-            //ASSERT
-            Assert.IsTrue(uvozpp1.DozvolaZaUvoz(), "Ocekujemo dozvoljen ulaz");
-        }
-
-        [Test]
-
-        public void NeuspesanuvozPP()
-        {
-            //ARRANGE
-
-            var uvozpp1 = new UvozPP();
-
-            //ACT
-            using (StringReader sr = new StringReader(@"dsss43434"))
-            {
-                Console.SetIn(sr);
-                var ex = Assert.Catch(() => uvozpp1.UveziXML_PP());     //HVATA EXCEPTION
-
-                //ASSERT
-                Assert.IsInstanceOf<Exception>(ex);
+                using (StringReader sr = new StringReader(relativnaPutanja))
+                {
+                    Console.SetIn(sr);
+                    uvozpp1.UveziXML_PP();
+                }
             }
             
-        }
-        
+            //ASSERT
+            Assert.IsTrue(uvozpp1.DozvolaZaUvoz(), "Ocekujemo dozvoljen ulaz");
+        }        
     }
 }

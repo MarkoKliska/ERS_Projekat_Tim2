@@ -16,7 +16,6 @@ namespace Projekat_Tim2.Klase
         private string putanjaXML;
 
         private string putanjaDoUlaznogFajla;
-        //private string putanjaDoSkladista;
 
         private bool dozvolaZaUvoz;
         private bool validnostFajla;
@@ -43,6 +42,8 @@ namespace Projekat_Tim2.Klase
             catch (Exception ex)
             {
                 Console.WriteLine("Nevalidna putanja, pokušajte ponovo.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
 
             ProveraFormataUlaznogFajla pfup = new ProveraFormataUlaznogFajla();
@@ -131,6 +132,7 @@ namespace Projekat_Tim2.Klase
                         skladiste.Save(putanjaXML);
 
                         Console.WriteLine("\nUvoz podataka uspesan.\n");
+                        this.AzuriranjePostojanjaFajlaPP(putanjaUPP);
                     }
                     else
                     {
@@ -168,16 +170,23 @@ namespace Projekat_Tim2.Klase
                     return postojiFajl;
                 }
             }
-
-            if (!postojiFajl)
-            {
-                XmlNode xmlNode = skladisteF.CreateElement("FAJL");
-                xmlNode.InnerText = imeFajla;
-                skladisteF.DocumentElement.AppendChild(xmlNode);
-                skladisteF.Save(putanjaSF);
-            }
-
             return postojiFajl;
+        }
+
+        public void AzuriranjePostojanjaFajlaPP(string putanjaDoFajla)
+        {
+            PutanjeDoSkladista putanja = new PutanjeDoSkladista();
+            string putanjaSF = putanja.GetSkladisteFajlova();
+            string imeFajla = System.IO.Path.GetFileNameWithoutExtension(putanjaDoFajla);
+
+            XmlDocument skladisteF = new XmlDocument();
+            skladisteF.Load(putanjaSF);
+            XmlNodeList fajlovi = skladisteF.SelectNodes("//FAJL");
+
+            XmlNode xmlNode = skladisteF.CreateElement("FAJL");
+            xmlNode.InnerText = imeFajla;
+            skladisteF.DocumentElement.AppendChild(xmlNode);
+            skladisteF.Save(putanjaSF);
         }
     }
 }

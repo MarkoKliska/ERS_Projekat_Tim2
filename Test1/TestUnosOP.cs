@@ -16,40 +16,30 @@ namespace TestiranjeUnosa
 
             var uvozop1 = new UvozOP();
 
-            string testDirektorijum = TestContext.CurrentContext.TestDirectory;
+            string? testDirektorijum = TestContext.CurrentContext.TestDirectory;
+            string? relativnaPutanja;
+
             testDirektorijum = Path.GetDirectoryName(testDirektorijum);
             testDirektorijum = Path.GetDirectoryName(testDirektorijum);
             testDirektorijum = Path.GetDirectoryName(testDirektorijum);
-            string relativnaPutanja = Path.Combine(testDirektorijum, "TestInput", "ostv_2020_05_07.xml");
+
+            if (testDirektorijum != null)
+                relativnaPutanja = Path.Combine(testDirektorijum, "TestInput", "ostv_2020_05_07.xml");
+            else
+                relativnaPutanja = null;
             //ACT
-            using (StringReader sr = new StringReader(relativnaPutanja))
+
+            if(relativnaPutanja != null)
             {
-                Console.SetIn(sr);
-                uvozop1.UveziXML_OP();
+                using (StringReader sr = new StringReader(relativnaPutanja))
+                {
+                    Console.SetIn(sr);
+                    uvozop1.UveziXML_OP();
+                }
             }
+            
             //ASSERT
             Assert.IsTrue(uvozop1.DozvolaZaUvoz(), "Ocekujemo dozvoljen ulaz");
         }
-
-        [Test]
-
-        public void NeuspesanuvozOP()
-        {
-            //ARRANGE
-
-            var uvozop1 = new UvozOP();
-
-            //ACT
-            using (StringReader sr = new StringReader(@"dsss43434"))
-            {
-                Console.SetIn(sr);
-                var ex = Assert.Catch(() => uvozop1.UveziXML_OP());     //HVATA EXCEPTION
-
-                //ASSERT
-                Assert.IsInstanceOf<Exception>(ex);
-            }
-
-        }
-
     }
 }

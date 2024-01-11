@@ -25,6 +25,7 @@ namespace Projekat_Tim2.Klase
             string putanjaXMLOP = Path.Combine(dirOP, putanjaDoSkladista2);
             return Path.GetFullPath(putanjaXMLOP);
         }
+
         public string GetTabelaRO()
         {
             string dirTRO = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
@@ -48,6 +49,7 @@ namespace Projekat_Tim2.Klase
             string putanjaXMLF = Path.Combine(dirF, putanjaDoSkladistaF);
             return putanjaXMLF;
         }
+
         public string GetAuditTabela()
         {
             string dirAT = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;

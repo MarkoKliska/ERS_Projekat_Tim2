@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projekat_Tim2", "Projekat_T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestiranjeUnosa", "..\Test1\TestiranjeUnosa.csproj", "{D21DF02F-3901-46CE-AD66-641360210BBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestiranjePutanja", "..\TestiranjePutanja\TestiranjePutanja.csproj", "{2F085E05-8041-4858-A713-2129B32F09F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D21DF02F-3901-46CE-AD66-641360210BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D21DF02F-3901-46CE-AD66-641360210BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D21DF02F-3901-46CE-AD66-641360210BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F085E05-8041-4858-A713-2129B32F09F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F085E05-8041-4858-A713-2129B32F09F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F085E05-8041-4858-A713-2129B32F09F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F085E05-8041-4858-A713-2129B32F09F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

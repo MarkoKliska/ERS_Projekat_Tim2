@@ -201,6 +201,8 @@ namespace Projekat_Tim2.Klase
             catch (Exception ex)
             {
                 Console.WriteLine("\nNeispravan format datuma, datum mora biti u formatu dd.mm.yyyy.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
 
             godinaInt = Convert.ToInt32(godinaStr);

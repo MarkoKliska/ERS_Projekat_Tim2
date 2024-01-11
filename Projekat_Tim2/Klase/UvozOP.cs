@@ -41,6 +41,8 @@ namespace Projekat_Tim2.Klase
             catch (Exception ex)
             {
                 Console.WriteLine("Nevalidna putanja, pokušajte ponovo.");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
 
             ProveraFormataUlaznogFajla pfup = new ProveraFormataUlaznogFajla();
@@ -129,11 +131,13 @@ namespace Projekat_Tim2.Klase
                         skladiste.Save(putanjaXML);
 
                         Console.WriteLine("\nUvoz podataka uspešan.\n");
+                        this.AzuriranjePostojanjaFajlaOP(putanjaUOP);
                     }
                     else
                     {
                         audTb.UpisUAuditTabelu(putanjaDoUlaznogFajla);
                         Console.WriteLine("Uvoz podataka neuspešan, pokušajte ponovo.\n");
+                        
                     }
                 }
             }
@@ -165,16 +169,23 @@ namespace Projekat_Tim2.Klase
                     return postojiFajl;
                 }
             }
-
-            if (!postojiFajl)
-            {
-                XmlNode xmlNode = skladisteF.CreateElement("FAJL");
-                xmlNode.InnerText = imeFajla;
-                skladisteF.DocumentElement.AppendChild(xmlNode);
-                skladisteF.Save(putanjaSF);
-            }
-
             return postojiFajl;
+        }
+
+        public void AzuriranjePostojanjaFajlaOP(string putanjaDoFajla)
+        {
+            PutanjeDoSkladista putanja = new PutanjeDoSkladista();
+            string putanjaSF = putanja.GetSkladisteFajlova();
+            string imeFajla = System.IO.Path.GetFileNameWithoutExtension(putanjaDoFajla);
+
+            XmlDocument skladisteF = new XmlDocument();
+            skladisteF.Load(putanjaSF);
+            XmlNodeList fajlovi = skladisteF.SelectNodes("//FAJL");
+
+            XmlNode xmlNode = skladisteF.CreateElement("FAJL");
+            xmlNode.InnerText = imeFajla;
+            skladisteF.DocumentElement.AppendChild(xmlNode);
+            skladisteF.Save(putanjaSF);
         }
     }
 }
