@@ -11,10 +11,10 @@ namespace Projekat_Tim2.Klase
 {
     internal class Ispis
     {
-        protected List<int> sat = new List<int>();
-        protected List<int> prog_potr = new List<int>();
-        protected List<int> ostv_potr = new List<int>();
-        protected List<double> rel_odst = new List<double>();
+        public List<int> sat = new List<int>();
+        public List<int> prog_potr = new List<int>();
+        public List<int> ostv_potr = new List<int>();
+        public List<double> rel_odst = new List<double>();
 
         public string[] datum;
 

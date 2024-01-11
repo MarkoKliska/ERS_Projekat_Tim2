@@ -9,13 +9,15 @@ using Projekat_Tim2.Interfejsi;
 
 namespace Projekat_Tim2.Klase
 {
-    class TabelaRO : Ispis, IIzvozRO
+    class TabelaRO : IIzvozRO
     {
         private bool uspesanIzvoz = false;
         public void IzveziUCsv()
         {
+
             try
             {
+                Ispis ispis = new Ispis();
                 UnosZaIspis instance = new UnosZaIspis().UnesiInformacije();
                 PutanjeDoSkladista putanjaSkl = new PutanjeDoSkladista();
                 string putanjaXMLPP = putanjaSkl.GetSkladistePP();
@@ -39,8 +41,8 @@ namespace Projekat_Tim2.Klase
                         {
                             if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
                             {
-                                sat.Add(Convert.ToInt32(stavka.SelectSingleNode("SAT").InnerText));
-                                prog_potr.Add(Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText));
+                                ispis.sat.Add(Convert.ToInt32(stavka.SelectSingleNode("SAT").InnerText));
+                                ispis.prog_potr.Add(Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText));
 
                             }
                         }
@@ -74,11 +76,11 @@ namespace Projekat_Tim2.Klase
                             if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
                             {
                                 prom_ost = Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText);
-                                ostv_potr.Add(prom_ost);
-                                vr = Convert.ToDouble(Convert.ToDouble(Math.Abs(prom_ost - prog_potr[i])) / prom_ost * 100);
+                                ispis.ostv_potr.Add(prom_ost);
+                                vr = Convert.ToDouble(Convert.ToDouble(Math.Abs(prom_ost - ispis.prog_potr[i])) / prom_ost * 100);
                                 vr = Math.Round(vr, 3);
-                                rel_odst.Add(vr);
-                                writer.WriteLine($"{sat[i]},{prog_potr[i]},{ostv_potr[i]},{rel_odst[i]}");
+                                ispis.rel_odst.Add(vr);
+                                writer.WriteLine($"{ispis.sat[i]},{ispis.prog_potr[i]},{ispis.ostv_potr[i]},{ispis.rel_odst[i]}");
                                 i++;
                                 uspesanIzvoz = true;
                             }
