@@ -37,13 +37,13 @@ namespace Projekat_Tim2
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("Neispravan unos. Molimo Vas da unesete broj.");
+                    Console.WriteLine("\nNeispravan unos. Molimo Vas da unesete broj.\n");
                     continue;
                 }
 
                 if (selekcija < 1 || selekcija > 4)
                 {
-                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
+                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo.\n");
                 }
 
                 switch (selekcija)
@@ -87,7 +87,7 @@ namespace Projekat_Tim2
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("Neispravan unos. Molimo Vas da unesete broj.");
+                    Console.WriteLine("\nNeispravan unos. Molimo Vas da unesete broj.\n");
                     continue;
                 }
 
@@ -95,7 +95,7 @@ namespace Projekat_Tim2
 
                 if (selekcija_UP < 1 || selekcija_UP > 3)
                 {
-                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
+                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo.\n");
                     UvozPodataka();
                 }
 
@@ -137,14 +137,14 @@ namespace Projekat_Tim2
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("Neispravan unos. Molimo Vas da unesete broj.");
+                    Console.WriteLine("\nNeispravan unos. Molimo Vas da unesete broj.\n");
                     continue;
                 }
 
 
                 if (selekcija_ISP < 1 || selekcija_ISP > 3)
                 {
-                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
+                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo.\n");
                     UvozPodataka();
                 }
 
@@ -187,14 +187,14 @@ namespace Projekat_Tim2
                 }
                 catch (FormatException ex)
                 {
-                    Console.WriteLine("Neispravan unos. Molimo Vas da unesete broj.");
+                    Console.WriteLine("\nNeispravan unos. Molimo Vas da unesete broj.\n");
                     continue;
                 }
 
 
                 if (opcijai < 1 || opcijai > 3)
                 {
-                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo\n");
+                    Console.WriteLine("\nNeispravan unos, pokusajte ponovo.\n");
                     UvozPodataka();
                 }
                 switch (opcijai)
@@ -211,7 +211,7 @@ namespace Projekat_Tim2
                     case 3:
                         return;
                     default:
-                        Console.WriteLine("Neispravan unos");
+                        Console.WriteLine("\nNeispravan unos, pokusajte ponovo.\n");
                         break;
                 }
             }

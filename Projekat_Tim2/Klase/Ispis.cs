@@ -63,22 +63,20 @@ namespace Projekat_Tim2.Klase
             int prom_ost;
             double vr;
 
-            if (instance != null)
+            if (UnosZaIspis.dozvolaZaIspis == true)
             {
-                Console.WriteLine("SAT     PROGNOZIRANA_POTROSNJA     OSTVARENA_POTROSNJA     RELATIVNO_PROCENTUALNO_ODSTUPANJE");
-            }
+                Console.WriteLine("SAT     PROGNOZIRANA_POTROŠNJA     OSTVARENA_POTROŠNJA     RELATIVNO_PROCENTUALNO_ODSTUPANJE");
 
-            foreach (XmlNode stavka in stavkeOP)
-            {
-                string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
-                string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
 
-                string[] datum;
-                datum = imeFajla.Split('_');
-                string[] dn = datum[3].Split('.');
-                
-                if (instance != null)
+                foreach (XmlNode stavka in stavkeOP)
                 {
+                    string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
+                    string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
+
+                    string[] datum;
+                    datum = imeFajla.Split('_');
+                    string[] dn = datum[3].Split('.');
+
                     if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
                     {
                         prom_ost = Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText);

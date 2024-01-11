@@ -40,5 +40,20 @@ namespace Projekat_Tim2.Klase
             string putanjaXMLEV = Path.Combine(dirEV, putanjaDoSkladistaEv);
             return putanjaXMLEV;
         }
+
+        public string GetSkladisteFajlova()
+        {
+            string dirF = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoSkladistaF = @"Skladista\skladisteFajlova.xml";
+            string putanjaXMLF = Path.Combine(dirF, putanjaDoSkladistaF);
+            return putanjaXMLF;
+        }
+        public string GetAuditTabela()
+        {
+            string dirAT = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoAuditTabele = @"Skladista\AuditTabela.csv";
+            string putanjaXMLAT = Path.Combine(dirAT, putanjaDoAuditTabele);
+            return putanjaXMLAT;
+        }
     }
 }
