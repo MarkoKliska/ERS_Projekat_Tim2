@@ -17,9 +17,6 @@ namespace Projekat_Tim2.Klase
         public string lokacija;
         public int brojRedovaFajla;
 
-        string dir = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
-        public string putanjaDoAuditTabele = @"Skladista\AuditTabela.csv";
-
         XmlDocument ucitaniFajl = new XmlDocument();
         XmlNodeList stavke;
 
@@ -51,13 +48,15 @@ namespace Projekat_Tim2.Klase
 
         public void SacuvajCSV(List<AuditTabela> auditLista)
         {
+            PutanjeDoSkladista putanja = new PutanjeDoSkladista();
+            string putanjaDoAuditTabele = putanja.GetAuditTabela();
 
             try
             {
-                putanjaDoAuditTabele = Path.Combine(dir, putanjaDoAuditTabele);
-
-                Path.GetFullPath(putanjaDoAuditTabele);
-
+                using (StreamWriter writer = new StreamWriter(putanjaDoAuditTabele, false, Encoding.UTF8))
+                {
+                    writer.WriteLine("VREME,IME_FAJLA,LOKACIJA,BROJ_REDOVA_FAJLA");
+                }
                 foreach (AuditTabela entry in auditLista)
                 {
                     string logEntry = $"{entry.sat}:{entry.minut}:{entry.sekunda},{entry.imeFajla},{entry.lokacija},{entry.brojRedovaFajla}";
@@ -69,7 +68,7 @@ namespace Projekat_Tim2.Klase
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Greska prilikom cuvanja podataka o nevalidnosti: {e.Message}");
+                Console.WriteLine($"Greška prilikom čuvanja podataka o nevalidnosti: {e.Message}");
             }
         }
 

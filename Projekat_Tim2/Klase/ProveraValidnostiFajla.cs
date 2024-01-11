@@ -25,9 +25,7 @@ namespace Projekat_Tim2.Klase
 
                     if (brSati.Count != ocekivaniBrSati)
                     {
-                        Console.Write("\nNevalidan broj sati za geografsku oblast ");
-                        Console.Write(sifraGO);
-                        Console.Write(" u datom fajlu.\n");
+                        Console.Write($"\nNevalidan broj sati za geografsku oblast {sifraGO} u datom fajlu.\n");
                         return false;
                     }
                 }

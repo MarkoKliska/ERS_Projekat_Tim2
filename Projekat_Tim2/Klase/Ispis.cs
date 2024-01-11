@@ -11,11 +11,13 @@ namespace Projekat_Tim2.Klase
 {
     internal class Ispis
     {
-        protected List<int> sat = new List<int>();
-        protected List<int> prog_potr = new List<int>();
-        protected List<int> ostv_potr = new List<int>();
-        protected List<double> rel_odst = new List<double>();
-        
+        public List<int> sat = new List<int>();
+        public List<int> prog_potr = new List<int>();
+        public List<int> ostv_potr = new List<int>();
+        public List<double> rel_odst = new List<double>();
+
+        public string[] datum;
+
 
         public Ispis() 
         {
@@ -38,15 +40,17 @@ namespace Projekat_Tim2.Klase
                 string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
                 string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
 
-                string[] datum;
                 datum = imeFajla.Split('_');
                 string[] dn = datum[3].Split('.');
 
-                if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                if (instance != null)
                 {
-                    sat.Add(Convert.ToInt32(stavka.SelectSingleNode("SAT").InnerText));
-                    prog_potr.Add(Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText));
+                    if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                    {
+                        sat.Add(Convert.ToInt32(stavka.SelectSingleNode("SAT").InnerText));
+                        prog_potr.Add(Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText));
 
+                    }
                 }
             }
 
@@ -59,30 +63,33 @@ namespace Projekat_Tim2.Klase
             int prom_ost;
             double vr;
 
-            Console.WriteLine("SAT     PROGNOZIRANA_PORTOSNJA     OSTVARENA_PORTOSNJA     RELATIVNO_PROCENTUALNO_ODSTUPANJE");
-
-            foreach (XmlNode stavka in stavkeOP)
+            if (UnosZaIspis.dozvolaZaIspis == true)
             {
-                string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
-                string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
+                Console.WriteLine("SAT     PROGNOZIRANA_POTROŠNJA     OSTVARENA_POTROŠNJA     RELATIVNO_PROCENTUALNO_ODSTUPANJE");
 
-                string[] datum;
-                datum = imeFajla.Split('_');
-                string[] dn = datum[3].Split('.');
-                if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+
+                foreach (XmlNode stavka in stavkeOP)
                 {
-                    prom_ost = Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText);
-                    ostv_potr.Add(prom_ost);
-                    vr = Convert.ToDouble(Convert.ToDouble(Math.Abs(prom_ost - prog_potr[i])) / prom_ost * 100);
-                    vr = Math.Round(vr, 3);
-                    rel_odst.Add(vr);
-                    Console.WriteLine(sat[i] + "          \t" + prog_potr[i] + "          \t\t" + prom_ost + "     \t\t" + rel_odst[i]);
-                    Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    i++;
+                    string imeFajla = stavka.SelectSingleNode("IME_FAJLA").InnerText;
+                    string oblast = stavka.SelectSingleNode("OBLAST").InnerText;
+
+                    string[] datum;
+                    datum = imeFajla.Split('_');
+                    string[] dn = datum[3].Split('.');
+
+                    if (Convert.ToInt32(datum[1]) == instance.Godina && Convert.ToInt32(datum[2]) == instance.Mesec && Convert.ToInt32(dn[0]) == instance.Dan && instance.UnetaOblast == oblast)
+                    {
+                        prom_ost = Convert.ToInt32(stavka.SelectSingleNode("LOAD").InnerText);
+                        ostv_potr.Add(prom_ost);
+                        vr = Convert.ToDouble(Convert.ToDouble(Math.Abs(prom_ost - prog_potr[i])) / prom_ost * 100);
+                        vr = Math.Round(vr, 3);
+                        rel_odst.Add(vr);
+                        Console.WriteLine(sat[i] + "\t\t" + prog_potr[i] + "\t                  " + prom_ost + "\t\t\t         " + rel_odst[i]);
+                        Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                        i++;
+                    }
                 }
             }
         }
-
-        
     }
 }

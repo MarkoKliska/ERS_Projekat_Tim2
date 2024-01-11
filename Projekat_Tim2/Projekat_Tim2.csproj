@@ -43,6 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfejsi\IIzvozRO.cs" />
+    <Compile Include="Interfejsi\IUvozOP.cs" />
+    <Compile Include="Interfejsi\IUvozPP.cs" />
     <Compile Include="Klase\AuditTabela.cs" />
     <Compile Include="Klase\EvidencijaGP.cs" />
     <Compile Include="Klase\InformacijeOU.cs" />
@@ -73,6 +76,8 @@
     <None Include="obj\Debug\Projekat_Tim2.csproj.AssemblyReference.cache" />
     <None Include="obj\Debug\Projekat_Tim2.csproj.CoreCompileInputs.cache" />
     <None Include="Skladista\AuditTabela.csv" />
+    <None Include="Skladista\TabelaRO.csv" />
+    <None Include="TestiranjePutanje.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\Projekat_Tim2.exe" />
@@ -80,6 +85,7 @@
     <Content Include="obj\Debug\Projekat_Tim2.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Projekat_Tim2.exe" />
     <Content Include="obj\Debug\Projekat_Tim2.pdb" />
+    <Content Include="Skladista\skladisteFajlova.xml" />
     <Content Include="Skladista\evidencijaGP.xml" />
     <Content Include="Skladista\skladisteOP.xml" />
     <Content Include="Skladista\skladistePP.xml" />

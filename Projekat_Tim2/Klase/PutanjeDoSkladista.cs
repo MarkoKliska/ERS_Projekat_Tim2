@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Projekat_Tim2.Klase
 {
-    internal class PutanjeDoSkladista
+    public class PutanjeDoSkladista
     {
+        public PutanjeDoSkladista() { }
         public string GetSkladistePP()
         {
             string dirPP = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
@@ -24,6 +25,7 @@ namespace Projekat_Tim2.Klase
             string putanjaXMLOP = Path.Combine(dirOP, putanjaDoSkladista2);
             return Path.GetFullPath(putanjaXMLOP);
         }
+
         public string GetTabelaRO()
         {
             string dirTRO = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
@@ -38,6 +40,22 @@ namespace Projekat_Tim2.Klase
             string putanjaDoSkladistaEv = @"Skladista\evidencijaGP.xml";
             string putanjaXMLEV = Path.Combine(dirEV, putanjaDoSkladistaEv);
             return putanjaXMLEV;
+        }
+
+        public string GetSkladisteFajlova()
+        {
+            string dirF = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoSkladistaF = @"Skladista\skladisteFajlova.xml";
+            string putanjaXMLF = Path.Combine(dirF, putanjaDoSkladistaF);
+            return putanjaXMLF;
+        }
+
+        public string GetAuditTabela()
+        {
+            string dirAT = Directory.GetParent(Environment.CurrentDirectory).Parent.FullName;
+            string putanjaDoAuditTabele = @"Skladista\AuditTabela.csv";
+            string putanjaXMLAT = Path.Combine(dirAT, putanjaDoAuditTabele);
+            return putanjaXMLAT;
         }
     }
 }

@@ -15,6 +15,7 @@ namespace Projekat_Tim2.Klase
         private List<string> sifre = new List<string>();
         private string putanjaDoEv;
         private List<string> procitaneOblasti = new List<string>();
+        private bool istiNaziv;
 
         public EvidencijaGP(string p = null)
         {
@@ -48,11 +49,12 @@ namespace Projekat_Tim2.Klase
         {
             sifre = this.GetSS();
             Console.Write("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-            Console.WriteLine("Postojece oblasti: ");
+            Console.WriteLine("\nPostojeće oblasti:");
             foreach (string s in sifre)
             {
-                Console.WriteLine(s);
+                Console.WriteLine("- " + s);
             }
+            Console.WriteLine();
         }
 
 
@@ -64,21 +66,35 @@ namespace Projekat_Tim2.Klase
             putanjaDoUlaza = putanja.GetSkladisteEv();
             sifre = this.GetSS();
 
-            Console.WriteLine("Unesite naziv oblasti zelite da izmenite: ");
+            Console.WriteLine("\nUnesite naziv oblasti koji želite da izmenite:");
             string stariNaziv = Console.ReadLine();
             stariNaziv = stariNaziv.ToUpper();
 
             if (sifre.Contains(stariNaziv))
             {
-                Console.WriteLine("Unesite novi naziv za datu oblast");
+                Console.WriteLine("\nUnesite novi naziv za datu oblast:");
                 string noviNaziv = Console.ReadLine();
                 noviNaziv = noviNaziv.ToUpper();
-
-                if (sifre.Contains(noviNaziv))
+                for (int i = 0; i < sifre.Count(); i++)
                 {
-                    Console.WriteLine("Dati naziv oblasti vec postoji u bazi podataka");
+                    if (sifre.Contains(noviNaziv) && stariNaziv == noviNaziv)
+                    {
+                        istiNaziv = true;
+                    }
+                    else if (sifre.Contains(noviNaziv) && stariNaziv != noviNaziv)
+                    {
+                        istiNaziv = false;
+                    }
+                }
+                if (istiNaziv == true)
+                {
+                    Console.WriteLine("\nNovi naziv ne može biti isti kao stari naziv.\n");
                 }
                 else
+                {
+                    Console.WriteLine("\nNovi naziv oblasti ne može biti isti kao neki naziv koji već postoji u bazi podataka.\nPogledajte listu oblasti, pa pokušajte ponovo.\n");
+                }
+                if (sifre.Contains(noviNaziv) == false)
                 {
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(putanjaDoUlaza);
@@ -90,12 +106,12 @@ namespace Projekat_Tim2.Klase
                     }
 
                     xmlDoc.Save(putanjaDoUlaza);
-                    Console.WriteLine($"Naziv oblasti '{stariNaziv}' uspesno promenjen u '{noviNaziv}'");
+                    Console.WriteLine($"Naziv oblasti '{stariNaziv}' uspešno promenjen u '{noviNaziv}'.");
                 }
             }
             else
             {
-                Console.WriteLine("Dati naziv oblasti ne postoji u bazi podataka");
+                Console.WriteLine("\nDati naziv oblasti ne postoji u bazi podataka.");
             }
         }
        
@@ -107,7 +123,16 @@ namespace Projekat_Tim2.Klase
             string tempObl;
 
             XmlDocument ulaz = new XmlDocument();
-            ulaz.Load(putanjaDoUlaza);
+            
+            try
+            {
+                ulaz.Load(putanjaDoUlaza);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Došlo je do greske: {ex.Message}");
+            }
+
             XmlNodeList stavke = ulaz.SelectNodes("/PROGNOZIRANI_LOAD/STAVKA");
             foreach (XmlNode stavka in stavke)
             {
